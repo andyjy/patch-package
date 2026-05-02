@@ -135,6 +135,7 @@ export function applyPatchesForApp({
       warnings,
       errors,
       bestEffort,
+      ignoreMissing,
     })
   }
 
@@ -177,6 +178,7 @@ export function applyPatchesForPackage({
   warnings,
   errors,
   bestEffort,
+  ignoreMissing,
 }: {
   patches: PatchedPackageDetails[]
   appPath: string
@@ -185,6 +187,7 @@ export function applyPatchesForPackage({
   warnings: string[]
   errors: string[]
   bestEffort: boolean
+  ignoreMissing: boolean
 }) {
   const pathSpecifier = patches[0].pathSpecifier
   const state = patches.length > 1 ? getPatchApplicationState(patches[0]) : null
